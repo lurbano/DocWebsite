@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src='./svg.js/svg.min.js'></script>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="svgPlace"></div>
+  </body>
+
+  <script type="text/javascript">
+    var draw = SVG().addTo('#svgPlace').size(300,400);
+    var line = draw.line([[20,20],[200,20]]).stroke({width: 1, color:'#f00'});
+
+    //Metronome red rectangle.
+    rect = draw.rect(50,100).move(200,20).fill('#f00');
+    rect.radius(10);
+    dir = 'left';
+
+    setInterval(animate, 1000);
+    function animate(){
+      if (dir === 'left'){
+        px = 20;
+        py = 20;
+        dir = "right";
+      }
+      else {
+        px = 200;
+        py = 20;
+        dir = "left";
+      }
+      rect.animate({
+        duration: 1000,
+        when: 'now'
+      }).move(px,py);
+    }
+
+    //Green circle
+    circ = draw.circle(20).fill('#0f0').move(250,10);
+    //mini = draw.circle(3).fill('#00f').move(250,10);
+    window.requestAnimationFrame(animateCirc);
+    cx = 250;
+    cy = 20;
+    dx = -.1;
+    dy = 1;
+
+    function animateCirc(){
+      cy+=dy;
+      cx+=dx;
+      circ.move(cx,cy);
+      //mini.move(cx,cy);
+      window.requestAnimationFrame(animateCirc);
+
+      //bounce circle off the walls
+      if (cy > 100 ){
+        cy = 100;
+        dy = -dy;
+      } else if (cy < 20) {
+        cy = 20;
+        dy = -dy;
+      }
+      if (cx > 250 ){
+        cx = 250;
+        dx = -dx;
+      } else if (cx < 20) {
+        cx = 20;
+        dx = -dx;
+      }
+    }
+
+    //getting keyboard input (controls left/right motion)
+    // search: "html keyboard input"
+    document.addEventListener('keydown', set_dxy);
+
+    function set_dxy(e){
+      console.log(e.key);
+      if (e.key === 'ArrowLeft'){
+        dx -= 0.1;
+      }
+      if (e.key === 'ArrowRight'){
+        dx += 0.1;
+      }
+    }
+    // end keyboard input
+
+
+    //adding mouse event listeners to object:
+    // search "html mouse events"
+    circ.on('mouseover', colorChange);
+
+    function colorChange(){
+      this.fill({ color: '#f06' });
+    }
+
+    circ.on('mouseout', colorReset);
+
+    function colorReset(){
+      this.fill({ color: '#00f' });
+    }
+    //end mouse events
+
+  </script>
+</html>
