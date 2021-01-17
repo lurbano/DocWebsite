@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <div id="gameBoard"></div>
+
+  </body>
+
+  <script type="text/javascript">
+
+    canvas_width = 400;
+    canvas_height = 300;
+
+    //create canvas
+    cvs = document.createElement("CANVAS");
+    cvs.height = canvas_height;
+    cvs.width = canvas_width;
+    document.getElementById("gameBoard").append(cvs);
+    ctx = cvs.getContext("2d");
+    cx = 10;
+    cy = 20;
+
+    window.requestAnimationFrame(animate);
+
+    function animate(){
+      //clear the canvas
+      ctx.clearRect(0, 0, canvas_width, canvas_height); // clear canvas
+
+      //set location of the circle
+      cx += .2;
+      cy += .1;
+      
+      //recreate the canvas (every time)
+      ctx.fillStyle = '#ff0000';
+      rect = ctx.fillRect(0, 0, 20, 100);
+
+      ctx.beginPath();
+      circ = ctx.arc(cx, cy, 10, 0, 2 * Math.PI);
+      //ctx.stroke();
+      ctx.fillStyle = '#00ff00';
+      ctx.fill();
+
+      window.requestAnimationFrame(animate);
+
+    }
+
+  </script>
+</html>
