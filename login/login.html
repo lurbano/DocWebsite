@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style>
+    </style>
+
+    <script type="text/javascript">
+
+      class User {
+        constructor(username, password) {
+          this.username = username;
+          this.password = password;
+        }
+      }
+
+      //database
+      users = [
+        new User("Jace", "1111"),
+        new User("Max", "aa")
+      ];
+
+      function checkUser(){
+        var username = document.getElementById('username');
+        var password = document.getElementById('pass');
+        console.log(username.value);
+        console.log(password.value);
+
+        console.log(users);
+
+        for (i=0; i<users.length; i++){
+          if (username.value === users[i].username){
+            console.log("user Found: ", username.value);
+            if (password.value === users[i].password){
+              console.log("password correct");
+            } else {
+              console.log("password wrong");
+            }
+          }
+        }
+
+
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+    Username: <input type='text' id="username"><br>
+    Password: <input type="password" id='pass'><br>
+    <input type='button' value="login" onClick="checkUser()">
+
+  </body>
+</html>
