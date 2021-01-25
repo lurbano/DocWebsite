@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+
+  <body>
+    <div id="canvasSpot"></div>
+
+  </body>
+
+  <script type="text/javascript">
+    canvas_width = 500;
+    canvas_height = 600;
+
+    cvs = document.createElement("CANVAS");
+    cvs.height = canvas_height;
+    cvs.width = canvas_width;
+
+    //document.getElementById("canvasSpot").append(cvs);
+    elem = document.getElementById("canvasSpot");
+    elem.append(cvs);
+    ctx = cvs.getContext('2d');
+
+    x = 0;
+    y = 0;
+
+    window.requestAnimationFrame(animate);
+
+    //Animation function
+    function animate(){
+      //clear canvas
+      ctx.clearRect(0,0, canvas_width, canvas_height);
+
+      rect = ctx.fillRect(x, y, 50, 100);
+      window.requestAnimationFrame(animate);
+    }
+
+    //keyboard input
+    function moveBox(e){
+      if (e.key === "ArrowLeft"){
+        x = x - 1;
+      }
+      if (e.key === "ArrowRight"){
+        x = x + 1;
+      }
+    }
+
+    document.addEventListener('keydown', moveBox);
+
+
+
+  </script>
+
+
+
+</html>
