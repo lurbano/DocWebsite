@@ -1,0 +1,17 @@
+.poetName {
+  /* background-color: #a8fa64; */
+  padding: 5px;
+  border: 4px inset darkgreen;
+  width: 50%;
+  background-image: linear-gradient(to right, yellow, red);
+}
+.poet {
+  background-color: #dddddd;
+  padding: 10px;
+  border: 5px outset black;
+  border-radius: 4px;
+  margin: 3px;
+}
+body {
+  background-image: linear-gradient(khaki, yellow);
+}
