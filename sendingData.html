@@ -19,6 +19,11 @@
       let url = "getData.php?text="+txt;
 
       console.log(url);
+      xhttp.onreadystatechange = function() {
+          if (xhr.readyState == XMLHttpRequest.DONE) {
+              console.log(xhttp.responseText);
+          }
+      }
 
       xhttp.open("GET", url, true);
       xhttp.send();

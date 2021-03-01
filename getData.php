@@ -1,4 +1,4 @@
 <?php
-echo htmlspecialchars($_GET["text"]);
+echo htmlspecialchars("Hello: " . $_GET["text"]);
 
 ?>
