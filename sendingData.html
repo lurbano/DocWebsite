@@ -20,7 +20,7 @@
 
       console.log(url);
       xhttp.onreadystatechange = function() {
-          if (xhr.readyState == XMLHttpRequest.DONE) {
+          if (xhttp.readyState == XMLHttpRequest.DONE) {
               console.log(xhttp.responseText);
           }
       }
