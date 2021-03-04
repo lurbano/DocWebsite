@@ -4,7 +4,7 @@ echo htmlspecialchars("Hello: " . $_GET["text"]);
 $data = [
   "user" => "lurbano",
   "text" => $_GET["text"],
-};
+];
 
 // $data = $_GET["text"];
 $dataString = json_encode($data);
