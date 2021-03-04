@@ -21,7 +21,26 @@
     function sendData(){
       xhttp = new XMLHttpRequest();
       let txt = document.getElementById("info").value;
-      let url = "getData.php?text="+txt;
+      let url = "saveData.php?text="+txt;
+
+      console.log(url);
+
+      //NEW
+      xhttp.onreadystatechange = function() {
+          if (xhttp.readyState == XMLHttpRequest.DONE) {
+              console.log(xhttp.responseText);
+          }
+      }
+      //END NEW
+
+      xhttp.open("GET", url, true);
+      xhttp.send();
+
+    }
+
+    function getData(){
+      xhttp = new XMLHttpRequest();
+      let url = "getData.php";
 
       console.log(url);
 
