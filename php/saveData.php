@@ -7,6 +7,6 @@ $dataString = json_encode($data);
 
 file_put_contents("dataFile.json", $dataString);
 
-
+echo "saved Data";
 
 ?>
