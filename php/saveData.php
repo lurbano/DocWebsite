@@ -3,7 +3,7 @@ echo htmlspecialchars("Hello: " . $_GET["text"]);
 
 $data = [
   "user" => "lurbano",
-  "text" => $_GET["text"]
+  "text" => $_GET["text"],
 };
 
 // $data = $_GET["text"];
