@@ -1,4 +1,8 @@
 <?php
-echo htmlspecialchars("Hello: " . $_GET["text"]);
+
+$oldData = file_get_contents("dataFile.json");
+
+echo $oldData;
+
 
 ?>
